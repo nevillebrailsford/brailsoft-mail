@@ -15,4 +15,8 @@ public enum MailNotificationType implements NotificationType {
 		return type;
 	}
 
+	@Override
+	public String category() {
+		return "mail";
+	}
 }
