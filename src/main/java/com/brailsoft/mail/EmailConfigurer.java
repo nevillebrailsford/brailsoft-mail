@@ -62,8 +62,8 @@ public class EmailConfigurer {
 			LOGGER.exiting(CLASS_NAME, "loadProperties");
 			return;
 		}
-		username = prop.getProperty("username", null);
-		password = prop.getProperty("password", null);
+		username = prop.getProperty(MailConstants.USER_NAME, null);
+		password = prop.getProperty(MailConstants.PASSWORD, null);
 		if (username == null || password == null) {
 			LOGGER.warning("Recording invalid configuration");
 			validConfiguration = false;
@@ -81,10 +81,10 @@ public class EmailConfigurer {
 	private Session createSession() {
 		LOGGER.entering(CLASS_NAME, "createSession");
 		Properties prop = new Properties();
-		prop.put("mail.smtp.host", "smtp-mail.outlook.com");
-		prop.put("mail.smtp.port", "587");
-		prop.put("mail.smtp.auth", "true");
-		prop.put("mail.smtp.starttls.enable", "true");
+		prop.put(MailConstants.SMTP_HOST, MailConstants.OUTLOOK_HOST);
+		prop.put(MailConstants.SMTP_PORT, MailConstants.OUTLOOK_PORT);
+		prop.put(MailConstants.SMTP_AUTH, "true");
+		prop.put(MailConstants.SMTP_START_TLS, "true");
 
 		session = Session.getInstance(prop, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
