@@ -1,5 +1,6 @@
 package com.brailsoft.mail;
 
+import java.time.LocalDate;
 import java.util.logging.Logger;
 
 import javax.mail.Message;
@@ -9,6 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import com.brailsoft.base.ApplicationConfiguration;
+import com.brailsoft.base.IniFile;
 import com.brailsoft.base.Notification;
 import com.brailsoft.base.NotificationCentre;
 
@@ -39,6 +41,8 @@ public class EmailSender implements Runnable {
 				Notification notification = new Notification(MailNotificationType.Sent, this,
 						"Email sent successfully");
 				NotificationCentre.broadcast(notification);
+				LocalDate now = LocalDate.now();
+				IniFile.store(MailConstants.DATE_OF_LAST_EMAIL, now.toString());
 			} catch (Exception e) {
 				LOGGER.warning("Caught exception: " + e.getMessage());
 				Notification notification = new Notification(MailNotificationType.Failed, this,

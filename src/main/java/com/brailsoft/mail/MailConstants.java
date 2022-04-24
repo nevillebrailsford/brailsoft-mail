@@ -13,4 +13,6 @@ public interface MailConstants extends BaseConstants {
 
 	public static final String OUTLOOK_HOST = "smtp-mail.outlook.com";
 	public static final String OUTLOOK_PORT = "587";
+
+	public static final String DATE_OF_LAST_EMAIL = "dateoflastemail";
 }
