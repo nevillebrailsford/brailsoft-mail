@@ -60,44 +60,44 @@ class EmailConfigurerTest {
 
 	@Test
 	void testGetInstance() {
-		assertNotNull(EmailConfigurer.getInstance());
+		assertNotNull(EmailConfigurer.instance());
 	}
 
 	@Test
 	void testGetInstanceNoFile() {
-		assertFalse(EmailConfigurer.getInstance().isValidConfiguration());
+		assertFalse(EmailConfigurer.instance().isValidConfiguration());
 	}
 
 	@Test
 	void testGetInstanceEmptyFile() throws Exception {
 		createEmptyMailFile();
 		assertTrue(mailFile.exists());
-		assertFalse(EmailConfigurer.getInstance().isValidConfiguration());
+		assertFalse(EmailConfigurer.instance().isValidConfiguration());
 	}
 
 	@Test
 	void testGetInstanceValidFile() throws Exception {
 		createValidFile();
-		assertTrue(EmailConfigurer.getInstance().isValidConfiguration());
+		assertTrue(EmailConfigurer.instance().isValidConfiguration());
 	}
 
 	@Test
 	void testGetSession() throws Exception {
 		createValidFile();
-		assertNotNull(EmailConfigurer.getInstance().getSession());
+		assertNotNull(EmailConfigurer.instance().getSession());
 	}
 
 	@Test
 	void testInavlidFileContents() throws Exception {
 		createInvalidFile();
-		assertFalse(EmailConfigurer.getInstance().isValidConfiguration());
+		assertFalse(EmailConfigurer.instance().isValidConfiguration());
 	}
 
 	@Test
 	void testGetUserName() throws Exception {
 		createValidFile();
-		assertNotNull(EmailConfigurer.getInstance().userName());
-		assertEquals("testname@neville", EmailConfigurer.getInstance().userName());
+		assertNotNull(EmailConfigurer.instance().userName());
+		assertEquals("testname@neville", EmailConfigurer.instance().userName());
 	}
 
 	private void createEmptyMailFile() throws Exception {

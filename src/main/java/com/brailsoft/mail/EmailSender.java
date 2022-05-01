@@ -27,7 +27,7 @@ public class EmailSender implements Runnable {
 	@Override
 	public void run() {
 		LOGGER.entering(CLASS_NAME, "run");
-		EmailConfigurer configurer = EmailConfigurer.getInstance();
+		EmailConfigurer configurer = EmailConfigurer.instance();
 		if (configurer.isValidConfiguration()) {
 			Session session = configurer.getSession();
 			Message message = new MimeMessage(session);

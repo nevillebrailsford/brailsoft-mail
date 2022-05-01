@@ -23,7 +23,7 @@ public class EmailConfigurer {
 	private boolean validConfiguration = true;
 	private Session session = null;
 
-	public synchronized static EmailConfigurer getInstance() {
+	public synchronized static EmailConfigurer instance() {
 		if (instance == null) {
 			instance = new EmailConfigurer();
 		}
