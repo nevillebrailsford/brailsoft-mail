@@ -1,8 +1,6 @@
 package com.brailsoft.mail;
 
-import com.brailsoft.base.BaseConstants;
-
-public interface MailConstants extends BaseConstants {
+public interface MailConstants {
 	public static final String USER_NAME = "username";
 	public static final String PASSWORD = "password";
 
