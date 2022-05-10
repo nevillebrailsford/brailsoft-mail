@@ -34,7 +34,7 @@ public class EmailConfigurer {
 	private EmailConfigurer() {
 	}
 
-	public Session getSession() {
+	public Session session() {
 		return session;
 	}
 

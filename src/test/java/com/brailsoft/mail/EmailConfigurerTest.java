@@ -84,7 +84,7 @@ class EmailConfigurerTest {
 	@Test
 	void testGetSession() throws Exception {
 		createValidFile();
-		assertNotNull(EmailConfigurer.instance().getSession());
+		assertNotNull(EmailConfigurer.instance().session());
 	}
 
 	@Test

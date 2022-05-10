@@ -29,10 +29,10 @@ public class EmailSender implements Runnable {
 		LOGGER.entering(CLASS_NAME, "run");
 		EmailConfigurer configurer = EmailConfigurer.instance();
 		if (configurer.isValidConfiguration()) {
-			Session session = configurer.getSession();
+			Session session = configurer.session();
 			Message message = new MimeMessage(session);
 			try {
-				String recipients = MailPreferences.mailingList();
+				String recipients = IniFile.value(MailConstants.EMAIL_LIST);
 				message.setFrom(new InternetAddress(configurer.userName()));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 				message.setSubject("Property Managment Report");

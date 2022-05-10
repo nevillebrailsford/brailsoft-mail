@@ -13,4 +13,7 @@ public interface MailConstants {
 	public static final String OUTLOOK_PORT = "587";
 
 	public static final String DATE_OF_LAST_EMAIL = "dateoflastemail";
+
+	public static final String EMAIL_NOTIFICATION = "emailnotification";
+	public static final String EMAIL_LIST = "emaillist";
 }
